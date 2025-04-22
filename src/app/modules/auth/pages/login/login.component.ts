@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.Title.setTitle(`Login - ${appName}`);
+        const token = !!localStorage.getItem('elancex');
+        if(token) this.Router.navigate(['/dashboard']);
     }
 
     login(){

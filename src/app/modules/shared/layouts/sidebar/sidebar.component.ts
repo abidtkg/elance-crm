@@ -3,6 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { appName } from '../../../../app.config';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
@@ -11,6 +14,11 @@ import { appName } from '../../../../app.config';
     standalone: false
 })
 export class SidebarComponent {
+
+    constructor(
+        private Dialog: MatDialog,
+        private Router: Router
+    ){}
 
     public appName: string = appName;
     
@@ -21,5 +29,19 @@ export class SidebarComponent {
         map(result => result.matches),
         shareReplay()
     );
+
+    logOut(){
+        const dialogRef = this.Dialog.open(ConfirmationComponent, {
+            disableClose: true,
+            data: { message: 'Are you sure you want to logout?' }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if(result == true){
+                localStorage.clear();
+                this.Router.navigate(['/auth/login']);
+            }
+        })
+    }
 
 }

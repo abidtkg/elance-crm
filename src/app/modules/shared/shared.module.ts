@@ -11,26 +11,31 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import { ConfirmationComponent } from './dialogs/confirmation/confirmation.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [
-    SidebarComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedRoutingModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule
-  ],
-  exports: [
-    SidebarComponent
-  ]
+    declarations: [
+        SidebarComponent,
+        ConfirmationComponent
+    ],
+    imports: [
+        CommonModule,
+        SharedRoutingModule,
+        MatGridListModule,
+        MatCardModule,
+        MatMenuModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatDialogModule,
+        MatMenuModule
+    ],
+    exports: [
+        SidebarComponent,
+        ConfirmationComponent
+    ]
 })
 export class SharedModule { }
