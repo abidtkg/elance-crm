@@ -1,0 +1,17 @@
+{
+    "hosting": {
+        "public": "dist/elance-crm/browser",
+        "site": "elancex",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}
