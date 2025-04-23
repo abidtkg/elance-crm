@@ -44,4 +44,8 @@ export class SidebarComponent {
         })
     }
 
+    isActiveRoute(route: string): boolean {
+        return this.Router.url.startsWith(route);
+    }
+
 }

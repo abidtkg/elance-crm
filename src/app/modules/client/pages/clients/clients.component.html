@@ -1,1 +1,58 @@
-<p>clients works!</p>
+<app-sidebar>
+    <div class="custom-container">
+        <div class="py-4">
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+                <div class="mb-3 mb-lg-0">
+                    <h1 class="h4">CLIENTS</h1>
+                </div>
+                <div>
+                    <button class="btn btn-outline-gray-600" (click)="createClient()">
+                        <i class="fa-solid fa-user-plus"></i>
+                        ADD CLIENT
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-centered table-nowrap mb-0 rounded">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="border-0">Name</th>
+                                <th class="border-0">Email</th>
+                                <th class="border-0">Phone</th>
+                                <th class="border-0">Created</th>
+                                <th class="border-0">Updated</th>
+                                <th class="border-0 rounded-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (client of clients; track $index) {
+                                <tr>
+                                    <td class="align-middle">{{ client.name }}</td>
+                                    <td class="align-middle">{{ client.email }}</td>
+                                    <td class="align-middle">{{ client.phone }}</td>
+                                    <td class="align-middle">{{ client.created | toDateTime }}</td>
+                                    <td class="align-middle">{{ client.updated | toDateTime }}</td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-sm btn-outline-gray-600 me-1">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-gray-600" (click)="delete(client._id)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <mat-paginator [length]="total_data" [pageSize]="dataLimit" (page)="handlePageEvent($event)" [pageSizeOptions]="[50, 100, 500]"></mat-paginator>
+            </div>
+        </div>
+    </div>
+</app-sidebar>

@@ -1,1 +1,21 @@
-<p>create-client works!</p>
+<h2 mat-dialog-title>Create Client Profile</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="name">Name <span class="text-danger">*</span> </label>
+            <input class="form-control" id="name" type="text" placeholder="Enter client's / Business full name" [(ngModel)]="name">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="email">Email <span class="text-danger">*</span> </label>
+            <input class="form-control" id="email" type="text" placeholder="Email address" [(ngModel)]="email">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="phone">Phone</label>
+            <input class="form-control" id="email" type="text" placeholder="Phone number" [(ngModel)]="phone">
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button class="btn btn-gray-800 me-2" (click)="create()">SAVE</button>
+    <button class="btn btn-outline-gray-600" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

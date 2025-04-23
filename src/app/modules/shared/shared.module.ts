@@ -13,11 +13,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ConfirmationComponent } from './dialogs/confirmation/confirmation.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ToDateTimePipe } from './pipes/to-date-time.pipe';
+import { CommaSeparatePipe } from './pipes/comma-separate.pipe';
 
 @NgModule({
     declarations: [
         SidebarComponent,
-        ConfirmationComponent
+        ConfirmationComponent,
+        ToDateTimePipe,
+        CommaSeparatePipe
     ],
     imports: [
         CommonModule,
@@ -35,7 +39,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ],
     exports: [
         SidebarComponent,
-        ConfirmationComponent
+        ConfirmationComponent,
+        CommaSeparatePipe,
+        ToDateTimePipe
     ]
 })
 export class SharedModule { }
