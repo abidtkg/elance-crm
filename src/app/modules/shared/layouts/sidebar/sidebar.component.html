@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar>
-            <img src="images/logo-white.png" alt="" class="p-2">
+            <span style="color: #2ecc71;">Tasks</span><span style="color: white;">Mint</span>
         </mat-toolbar>
         <mat-nav-list>
             <div class="sidebar-inner px-2">
