@@ -6,6 +6,9 @@ import { ProductsComponent } from './pages/products/products.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CreateProductComponent } from './dialogs/create-product/create-product.component';
 import { CreateCategoryComponent } from './dialogs/create-category/create-category.component';
+import { SharedModule } from '../shared/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { CreateCategoryComponent } from './dialogs/create-category/create-catego
     ],
     imports: [
         CommonModule,
-        ProductRoutingModule
+        ProductRoutingModule,
+        SharedModule,
+        MatDialogModule,
+        FormsModule
     ]
 })
 export class ProductModule { }
