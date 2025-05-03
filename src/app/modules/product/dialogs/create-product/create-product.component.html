@@ -1,9 +1,25 @@
 <h2 mat-dialog-title>Create Create</h2>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content>
     <div class="row">
         <div class="col-md-12 mb-3">
-            <label for="name">Category Name <span class="text-danger">*</span> </label>
-            <input class="form-control" id="name" type="text" >
+            <label for="category">Select Category </label>
+            <ng-select [(ngModel)]="category" id="category">
+                @for (category of categories; track category._id) {
+                    <ng-option [value]="category._id">{{category.name}}</ng-option>
+                }
+            </ng-select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="name">Name <span class="text-danger">*</span> </label>
+            <input class="form-control" id="name" type="text" [(ngModel)]="name">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="price">Price <span class="text-danger">*</span> </label>
+            <input class="form-control" id="price" type="number" [(ngModel)]="price">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="name">Description <span class="text-danger">*</span> </label>
+            <textarea class="form-control" [(ngModel)]="description"></textarea>
         </div>
     </div>
 </mat-dialog-content>

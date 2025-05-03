@@ -32,7 +32,7 @@ export class ProductService {
     }
 
     deleteCategory(id: string): Observable<any> {
-        return this.http.delete<any>(`${this.server}/client/delete/${id}`)
+        return this.http.delete<any>(`${this.server}/category/delete/${id}`)
         .pipe(
             catchError(this.errorHandeller)
         );

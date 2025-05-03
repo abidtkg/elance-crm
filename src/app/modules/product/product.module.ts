@@ -9,6 +9,7 @@ import { CreateCategoryComponent } from './dialogs/create-category/create-catego
 import { SharedModule } from '../shared/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
         ProductRoutingModule,
         SharedModule,
         MatDialogModule,
-        FormsModule
+        FormsModule,
+        NgSelectModule
     ]
 })
 export class ProductModule { }

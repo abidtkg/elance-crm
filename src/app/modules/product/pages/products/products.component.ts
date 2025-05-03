@@ -6,6 +6,7 @@ import { IProduct } from '../../interfaces/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../../shared/dialogs/confirmation/confirmation.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CreateProductComponent } from '../../dialogs/create-product/create-product.component';
 
 @Component({
     selector: 'app-products',
@@ -30,6 +31,18 @@ export class ProductsComponent implements OnInit {
         .subscribe({
             next: (data) => {
                 this.products = data;
+            }
+        });
+    }
+
+    create(){
+        const dialogRef = this.Dialog.open(CreateProductComponent, {
+            disableClose: true
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if(result){
+                this.reloadData();
             }
         });
     }
