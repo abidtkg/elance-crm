@@ -1,0 +1,88 @@
+<app-sidebar>
+    <div class="custom-container">
+        <div class="py-4">
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+                <div class="mb-3 mb-lg-0">
+                    <h1 class="h4">Create Invoice</h1>
+                </div>
+                <div>
+                    <a routerLink="/invoice" class="btn btn-outline-gray-600">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Go Back
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-body border-0 shadow mb-4">
+                    <h2 class="h5 mb-4">General information</h2>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="birthday">Select Client</label>
+                            <ng-select [(ngModel)]="client">
+                                @for (client of clients; track client._id) {
+                                    <ng-option [value]="client.id">{{client.name}} | {{ client.email }} </ng-option>
+                                }
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="status">Status</label> 
+                            <select class="form-select mb-0" id="gender" [(ngModel)]="status">
+                                <option value="unpaid">Unpaid</option>
+                                <option value="partial">Partial</option>
+                                <option value="paid">Paid</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="textarea">Note</label>
+                            <textarea class="form-control" placeholder="Enter your note..." id="textarea" rows="4" spellcheck="false" [(ngModel)]="note"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-body border-0 shadow mb-4">
+                    <h2 class="h5 mb-4">Product 
+                        <button class="btn btn-sm btn-primary" style="float: right;" (click)="addProduct()"> <i class="fas fa-plus"></i> ADD PRODUCT</button>
+                    </h2>
+                    <div class="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0 rounded">
+                           <thead class="thead-light">
+                              <tr>
+                                 <th class="border-0 rounded-start">Name</th>
+                                 <th class="border-0">Price</th>
+                                 <th class="border-0">Qty</th>
+                                 <th class="border-0">Total</th>
+                                 <th class="border-0 rounded-end">Action</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                            @for (product of products; track $index) {
+                                <tr>
+                                    <td class="align-middle">
+                                        {{ product.name }}
+                                    </td>
+                                    <td class="align-middle">
+                                        <input class="form-control" type="number" [(ngModel)]="product.price">
+                                    </td>
+                                    <td class="align-middle">
+                                        <input class="form-control" type="number" [(ngModel)]="product.quantity">
+                                     </td>
+                                     <td class="align-middle">৳ {{ product.price * product.quantity | commaSeparate }}</td>
+                                     <td class="align-middle">
+                                        <button class="btn btn-outline-primary btn-sm" (click)="removeProduct(product.id)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                     </td>
+                                  </tr>
+   }
+                           </tbody>
+                        </table>
+                     </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</app-sidebar>

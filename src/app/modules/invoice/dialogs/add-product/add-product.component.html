@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Create Create</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="row" style="height: 200px;">
+        <div class="col-md-12 mb-3">
+            <ng-select [(ngModel)]="product">
+                @for (product of products; track product._id) {
+                    <ng-option [value]="product">{{product.name}}</ng-option>
+                }
+            </ng-select>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button class="btn btn-gray-800 me-2" (click)="save()" >SAVE</button>
+    <button class="btn btn-outline-gray-600" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

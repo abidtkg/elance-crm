@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent {
 
+    public isLocal: boolean = window.location.hostname == 'localhost' ? true : false;
+
     constructor(
         private Dialog: MatDialog,
         private Router: Router
