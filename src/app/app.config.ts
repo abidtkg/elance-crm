@@ -1,2 +1,2 @@
-export const server = 'https://elanceapi.abid.com.bd'
+export const server = 'https://api.tasksmint.com'
 export const appName = 'TasksMint'

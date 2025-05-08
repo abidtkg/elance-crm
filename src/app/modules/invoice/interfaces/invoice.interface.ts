@@ -16,7 +16,15 @@ export interface ICreateInvoice {
 
 export interface IInvoiceListItem {
     _id: string;
-    client: string;
+    client: {
+        _id: string;
+        user: string;
+        name: string;
+        email: string;
+        phone: string;
+        created: string;
+        updated: string
+    };
     id: number;
     payment_status: string;
     products: IInvoiceProduct[];

@@ -23,6 +23,7 @@
                                 <th class="border-0">#</th>
                                 <th class="border-0">Client</th>
                                 <th class="border-0">Total</th>
+                                <th class="border-0">Status</th>
                                 <th class="border-0">Created</th>
                                 <th class="border-0">Updated</th>
                                 <th class="border-0 rounded-end">Action</th>
@@ -32,15 +33,20 @@
                             @for (invoice of invoices; track $index) {
                                 <tr>
                                     <td class="align-middle">{{ invoice.id }}</td>
-                                    <td class="align-middle">{{ invoice.client }}</td>
+                                    <td class="align-middle">{{ invoice.client.name }}</td>
                                     <td class="align-middle">৳ {{ invoice.total | commaSeparate }}</td>
+                                    <td class="align-middle">
+                                        <span class="badge bg-danger" *ngIf="invoice.payment_status == 'unpaid'">UNPAID</span>
+                                        <span class="badge bg-warning text-dark" *ngIf="invoice.payment_status == 'parital'">PARTIAL</span>
+                                        <span class="badge bg-primary" *ngIf="invoice.payment_status == 'paid'">PAID</span>
+                                    </td>
                                     <td class="align-middle">{{ invoice.created | toDateTime }}</td>
                                     <td class="align-middle">{{ invoice.updated | toDateTime }}</td>
                                     <td class="align-middle">
                                         <button class="btn btn-sm btn-outline-gray-600 me-1">
                                             <i class="fa-solid fa-edit"></i>
                                         </button>
-                                        <button class="btn btn-sm btn-outline-gray-600" >
+                                        <button class="btn btn-sm btn-outline-gray-600" (click)="delete(invoice)" >
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </td>
